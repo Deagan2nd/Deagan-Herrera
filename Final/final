@@ -1,10 +1,54 @@
 #-------------------------------------------------------------------------------
-# Name:        Final
+# Name:        final/Cat Dog Snake
 # Purpose:
 #
 # Author:      drherrera
 #
-# Created:     04/11/2025
+# Created:     02/12/2025
 # Copyright:   (c) drherrera 2025
 # Licence:     <your licence>
 #-------------------------------------------------------------------------------
+import random
+
+choices = ["Cat", "Dog", "Snake"]
+playAgain = False
+playing = True
+
+def get_user_choice():
+    raspberry = input(" Cat, Dog, Snake ")
+    return raspberry
+def get_computer_choice():
+    return random.choice(choices)
+
+def winner_loser(player_choice, computer_choice):
+    if player_choice == computer_choice:
+        return "tie"
+    elif player_choice == "Cat" and computer_choice == "Snake":
+        return " Player Wins "
+    elif player_choice == "Cat" and computer_choice == "Dog":
+        return " Computer Wins "
+    elif player_choice == "Dog" and computer_choice == "Snake":
+        return " Computer Wins "
+    elif player_choice == "Dog" and computer_choice == "Cat":
+        return " Player Wins "
+    elif player_choice == "Snake" and computer_choice == "Cat":
+        return " Computer Wins "
+    elif player_choice == "Snake" and computer_choice == "Dog":
+        return " Player Wins "
+    else:
+        print (" Invalid Choice ")
+
+
+playing = True
+while playing:
+    player = get_user_choice()
+    computer = get_computer_choice()
+    print(winner_loser(player,computer))
+
+
+
+
+    playAgain = input(" Would you like to play again? Type yes or no then press enter ")
+    if playAgain.lower() != "yes":
+     playing = False
+
